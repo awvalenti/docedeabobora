@@ -1,7 +1,10 @@
-package com.github.awvalenti.docedeabobora;
+package com.github.awvalenti.docedeabobora.nucleo;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.github.awvalenti.docedeabobora.nucleo.Deposito;
+import com.github.awvalenti.docedeabobora.nucleo.EventoDeposito;
 
 import static org.mockito.Mockito.*;
 

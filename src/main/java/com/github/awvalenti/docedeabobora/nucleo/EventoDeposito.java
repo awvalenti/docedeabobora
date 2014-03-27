@@ -1,4 +1,4 @@
-package com.github.awvalenti.docedeabobora;
+package com.github.awvalenti.docedeabobora.nucleo;
 
 public interface EventoDeposito {
 
