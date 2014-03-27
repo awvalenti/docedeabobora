@@ -1,17 +1,15 @@
 package com.github.awvalenti.docedeabobora;
 
-//import static org.hamcrest.Matchers.*;
-//import static org.hamcrest.MatcherAssert.*;
 import static org.mockito.Mockito.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.github.awvalenti.docedeabobora.Doceiro;
+import com.github.awvalenti.docedeabobora.Transformador;
 
-public class DoceiroTest {
+public class TransformadorTest {
 
-	private Doceiro doceiro;
+	private Transformador doceiro;
 	private Deposito depositoAboboras;
 	private Deposito depositoDoces;
 
@@ -19,7 +17,7 @@ public class DoceiroTest {
 	public void setUp() {
 		depositoAboboras = mock(Deposito.class);
 		depositoDoces = mock(Deposito.class);
-		doceiro = new Doceiro(depositoAboboras, depositoDoces);
+		doceiro = new Transformador(depositoAboboras, depositoDoces);
 	}
 
 	@Test
