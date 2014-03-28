@@ -1,9 +1,22 @@
 package com.github.awvalenti.docedeabobora.interfaceusuario.swing.fabrica;
 
+import javax.swing.BoxLayout;
+import javax.swing.JPanel;
+
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.ControleUmaVelocidade;
+import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.PainelControle;
+import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.PainelRaias;
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.Raia;
 
 public class FabricaObjetosSwing {
+
+	public static JPanel fabricarPainelGeral(PainelRaias painelRaias, PainelControle painelControle) {
+		JPanel painelGeral = new JPanel();
+		painelGeral.setLayout(new BoxLayout(painelGeral, BoxLayout.Y_AXIS));
+		painelGeral.add(painelRaias);
+		painelGeral.add(painelControle);
+		return painelGeral;
+	}
 
 	public static Raia fabricarRaiaAboboras() {
 		return fabricarRaiaGenerica("Ab\u00f3boras", "/img/abobora.jpg");

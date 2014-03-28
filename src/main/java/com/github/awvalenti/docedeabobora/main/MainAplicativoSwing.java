@@ -2,6 +2,8 @@ package com.github.awvalenti.docedeabobora.main;
 
 import javax.swing.JFrame;
 
+import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.ControleUmaVelocidade;
+import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.PainelControle;
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.PainelRaias;
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.Raia;
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.controlador.AtualizadorDeRaia;
@@ -16,8 +18,6 @@ public class MainAplicativoSwing {
 		final Raia raiaAboboras = FabricaObjetosSwing.fabricarRaiaAboboras();
 		final Raia raiaDoces = FabricaObjetosSwing.fabricarRaiaDoces();
 
-		PainelRaias painelRaias = new PainelRaias(raiaAboboras, raiaDoces);
-
 		Estoque estoqueAboboras = FabricaObjetosNucleo.fabricarEstoqueAboboras(new AtualizadorDeRaia(raiaAboboras));
 		Estoque estoqueDoces = FabricaObjetosNucleo.fabricarEstoqueDoces(new AtualizadorDeRaia(raiaDoces));
 
@@ -28,7 +28,14 @@ public class MainAplicativoSwing {
 		JFrame frame = new JFrame("Doce de ab\u00f3bora");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		frame.add(painelRaias);
+		ControleUmaVelocidade controleVelocidadeAgricultor = FabricaObjetosSwing.criarControleVelocidadeAgricultor();
+		ControleUmaVelocidade controleVelocidadeDoceiro = FabricaObjetosSwing.criarControleVelocidadeDoceiro();
+		ControleUmaVelocidade controleVelocidadeClientela = FabricaObjetosSwing.criarControleVelocidadeClientela();
+
+		frame.add(FabricaObjetosSwing.fabricarPainelGeral(
+			new PainelRaias(raiaAboboras, raiaDoces),
+			new PainelControle(controleVelocidadeAgricultor, controleVelocidadeDoceiro, controleVelocidadeClientela))
+		);
 
 		frame.pack();
 		frame.setVisible(true);
