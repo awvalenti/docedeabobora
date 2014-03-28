@@ -4,9 +4,9 @@ import javax.swing.JFrame;
 
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.PainelRaias;
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.Raia;
+import com.github.awvalenti.docedeabobora.interfaceusuario.swing.controlador.AtualizadorDeRaia;
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.fabrica.FabricaObjetosSwing;
 import com.github.awvalenti.docedeabobora.nucleo.Estoque;
-import com.github.awvalenti.docedeabobora.nucleo.EventoEstoque;
 import com.github.awvalenti.docedeabobora.nucleo.TrabalhadorPeriodico;
 import com.github.awvalenti.docedeabobora.nucleo.fabrica.FabricaObjetosNucleo;
 
@@ -18,29 +18,8 @@ public class MainAplicativoSwing {
 
 		PainelRaias painelRaias = new PainelRaias(raiaAboboras, raiaDoces);
 
-		Estoque estoqueAboboras = FabricaObjetosNucleo.fabricarEstoqueAboboras(new EventoEstoque() {
-			@Override
-			public void aoProduzir(int novaQuantidade) {
-				raiaAboboras.setQuantidadeProdutos(novaQuantidade);
-			}
-
-			@Override
-			public void aoConsumir(int novaQuantidade) {
-				raiaAboboras.setQuantidadeProdutos(novaQuantidade);
-			}
-		});
-
-		Estoque estoqueDoces = FabricaObjetosNucleo.fabricarEstoqueDoces(new EventoEstoque() {
-			@Override
-			public void aoProduzir(int novaQuantidade) {
-				raiaDoces.setQuantidadeProdutos(novaQuantidade);
-			}
-
-			@Override
-			public void aoConsumir(int novaQuantidade) {
-				raiaDoces.setQuantidadeProdutos(novaQuantidade);
-			}
-		});
+		Estoque estoqueAboboras = FabricaObjetosNucleo.fabricarEstoqueAboboras(new AtualizadorDeRaia(raiaAboboras));
+		Estoque estoqueDoces = FabricaObjetosNucleo.fabricarEstoqueDoces(new AtualizadorDeRaia(raiaDoces));
 
 		TrabalhadorPeriodico agricultor = FabricaObjetosNucleo.fabricarAgricultor(estoqueAboboras);
 		TrabalhadorPeriodico doceiro = FabricaObjetosNucleo.fabricarDoceiro(estoqueAboboras, estoqueDoces);
