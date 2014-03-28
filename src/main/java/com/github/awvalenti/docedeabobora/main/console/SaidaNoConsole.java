@@ -1,8 +1,8 @@
 package com.github.awvalenti.docedeabobora.main.console;
 
-import com.github.awvalenti.docedeabobora.nucleo.EventoDeposito;
+import com.github.awvalenti.docedeabobora.nucleo.EventoEstoque;
 
-public class SaidaNoConsole implements EventoDeposito {
+public class SaidaNoConsole implements EventoEstoque {
 	private final String nomeProduto;
 
 	public SaidaNoConsole(String nomeProduto) {

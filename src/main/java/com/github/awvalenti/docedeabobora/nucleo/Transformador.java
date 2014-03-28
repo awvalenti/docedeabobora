@@ -2,16 +2,16 @@ package com.github.awvalenti.docedeabobora.nucleo;
 
 public class Transformador implements Runnable {
 
-	private final Deposito depositoOrigem;
-	private final Deposito depositoDestino;
+	private final Estoque estoqueOrigem;
+	private final Estoque estoqueDestino;
 
-	public Transformador(Deposito depositoOrigem, Deposito depositoDestino) {
-		this.depositoOrigem = depositoOrigem;
-		this.depositoDestino = depositoDestino;
+	public Transformador(Estoque estoqueOrigem, Estoque estoqueDestino) {
+		this.estoqueOrigem = estoqueOrigem;
+		this.estoqueDestino = estoqueDestino;
 	}
 
 	public void run() {
-		if (depositoOrigem.consumir()) depositoDestino.produzir();
+		if (estoqueOrigem.consumir()) estoqueDestino.produzir();
 	}
 
 }

@@ -1,14 +1,14 @@
 package com.github.awvalenti.docedeabobora.nucleo;
 
 public class Produtor implements Runnable {
-	private final Deposito deposito;
+	private final Estoque estoque;
 
-	public Produtor(Deposito deposito) {
-		this.deposito = deposito;
+	public Produtor(Estoque estoque) {
+		this.estoque = estoque;
 	}
 
 	@Override
 	public void run() {
-		deposito.produzir();
+		estoque.produzir();
 	}
 }

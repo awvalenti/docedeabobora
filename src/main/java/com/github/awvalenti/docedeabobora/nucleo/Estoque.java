@@ -1,27 +1,27 @@
 package com.github.awvalenti.docedeabobora.nucleo;
 
-public class Deposito {
+public class Estoque {
 
 	private int tamanho;
 	private final int limite;
-	private final EventoDeposito eventoDeposito;
+	private final EventoEstoque eventoEstoque;
 
-	public Deposito(int tamanho, int limite, EventoDeposito eventoDeposito) {
+	public Estoque(int tamanho, int limite, EventoEstoque eventoEstoque) {
 		this.tamanho = tamanho;
 		this.limite = limite;
-		this.eventoDeposito = eventoDeposito;
+		this.eventoEstoque = eventoEstoque;
 	}
 
 	public boolean consumir() {
 		if (tamanho > 0) {
-			eventoDeposito.aoConsumir(--tamanho);
+			eventoEstoque.aoConsumir(--tamanho);
 		}
 		return true;
 	}
 
 	public void produzir() {
 		if (tamanho < limite) {
-			eventoDeposito.aoProduzir(++tamanho);
+			eventoEstoque.aoProduzir(++tamanho);
 		}
 	}
 

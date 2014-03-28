@@ -1,6 +1,6 @@
 package com.github.awvalenti.docedeabobora.nucleo;
 
-public interface EventoDeposito {
+public interface EventoEstoque {
 
 	void aoProduzir(int novaQuantidade);
 

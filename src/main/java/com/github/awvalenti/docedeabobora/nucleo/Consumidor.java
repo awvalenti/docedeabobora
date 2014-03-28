@@ -1,14 +1,14 @@
 package com.github.awvalenti.docedeabobora.nucleo;
 
 public class Consumidor implements Runnable {
-	private final Deposito deposito;
+	private final Estoque estoque;
 
-	public Consumidor(Deposito deposito) {
-		this.deposito = deposito;
+	public Consumidor(Estoque estoque) {
+		this.estoque = estoque;
 	}
 
 	@Override
 	public void run() {
-		deposito.consumir();
+		estoque.consumir();
 	}
 }
