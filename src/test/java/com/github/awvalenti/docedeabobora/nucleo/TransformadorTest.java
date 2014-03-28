@@ -24,7 +24,7 @@ public class TransformadorTest {
 	@Test
 	public void deve_produzir_doce() {
 		when(depositoAboboras.consumir()).thenReturn(true);
-		doceiro.produzir();
+		doceiro.run();
 		verify(depositoAboboras, times(1)).consumir();
 		verify(depositoDoces, times(1)).produzir();
 	}
@@ -32,7 +32,7 @@ public class TransformadorTest {
 	@Test
 	public void nao_deve_produzir_doce_quando_faltar_espaco_para_doce() {
 		when(depositoAboboras.consumir()).thenReturn(false);
-		doceiro.produzir();
+		doceiro.run();
 		verify(depositoDoces, never()).produzir();
 	}
 
