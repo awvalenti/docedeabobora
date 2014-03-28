@@ -2,7 +2,6 @@ package com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.util.Random;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;

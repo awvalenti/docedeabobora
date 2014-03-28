@@ -6,6 +6,8 @@ import org.junit.Test;
 import com.github.awvalenti.docedeabobora.nucleo.Estoque;
 import com.github.awvalenti.docedeabobora.nucleo.EventoEstoque;
 
+import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.*;
 
 public class EstoqueTest {
@@ -28,7 +30,8 @@ public class EstoqueTest {
 	@Test
 	public void deve_consumir() {
 		estoque = new Estoque(10, 30, eventoEstoque);
-		estoque.consumir();
+		boolean consumiu = estoque.consumir();
+		assertThat(consumiu, is(true));
 		verify(eventoEstoque, times(1)).aoConsumir(9);
 	}
 
@@ -42,7 +45,8 @@ public class EstoqueTest {
 	@Test
 	public void deve_impedir_consumo_quando_vazio() {
 		estoque = new Estoque(0, 30, eventoEstoque);
-		estoque.consumir();
+		boolean consumiu = estoque.consumir();
+		assertThat(consumiu, is(false));
 		verify(eventoEstoque, never()).aoConsumir(anyInt());
 	}
 

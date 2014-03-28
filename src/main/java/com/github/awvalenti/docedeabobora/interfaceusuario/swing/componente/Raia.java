@@ -10,6 +10,7 @@ import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -35,10 +36,13 @@ public class Raia extends JPanel {
 		labelAlemDaCapacidade.setFont(new Font(Font.SERIF, Font.BOLD, 50));
 		labelAlemDaCapacidade.setForeground(Color.RED);
 
-		final Image imagem = lerImagem(inputStreamImagem).getScaledInstance(larguraImagem, alturaImagem, Image.SCALE_SMOOTH);
+		Icon iconeImagemAtiva = new ImageIcon(lerImagem(inputStreamImagem).getScaledInstance(larguraImagem, alturaImagem, Image.SCALE_SMOOTH));
+		Icon iconeImagemInativa = new IconeVazio(larguraImagem, alturaImagem);
 
 		for (int i = 0; i < capacidade; ++i) {
-			add(new JLabel(new ImageIcon(imagem)));
+			JLabel labelImagem = new JLabel(iconeImagemAtiva);
+			labelImagem.setDisabledIcon(iconeImagemInativa);
+			add(labelImagem);
 		}
 		add(labelAlemDaCapacidade);
 

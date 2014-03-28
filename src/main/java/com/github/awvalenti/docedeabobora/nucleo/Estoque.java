@@ -13,9 +13,9 @@ public class Estoque {
 	}
 
 	public boolean consumir() {
-		if (tamanho > 0) {
-			eventoEstoque.aoConsumir(--tamanho);
-		}
+		if (tamanho <= 0) return false;
+
+		eventoEstoque.aoConsumir(--tamanho);
 		return true;
 	}
 
@@ -23,10 +23,6 @@ public class Estoque {
 		if (tamanho < limite) {
 			eventoEstoque.aoProduzir(++tamanho);
 		}
-	}
-
-	public int tamanho() {
-		return tamanho;
 	}
 
 }
