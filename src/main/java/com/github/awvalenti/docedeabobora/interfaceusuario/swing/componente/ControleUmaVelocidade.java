@@ -10,12 +10,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class PainelUmaVelocidade extends JPanel implements ChangeListener {
+public class ControleUmaVelocidade extends JPanel implements ChangeListener {
 	private static final long serialVersionUID = 1L;
 
 	private final JSlider slider;
 
-	public PainelUmaVelocidade(String nome) {
+	public ControleUmaVelocidade(String nome) {
 		super(new BorderLayout());
 		setBorder(new EmptyBorder(10, 10, 10, 10));
 
