@@ -22,7 +22,7 @@ public class ControleUmaVelocidade extends JPanel implements ChangeListener {
 		slider = new JSlider(SwingConstants.VERTICAL, 0, 100, 50);
 		slider.addChangeListener(this);
 
-		add(new JLabel(nome, JLabel.CENTER), BorderLayout.NORTH);
+		add(new JLabel(nome, SwingConstants.CENTER), BorderLayout.NORTH);
 		add(slider, BorderLayout.SOUTH);
 	}
 

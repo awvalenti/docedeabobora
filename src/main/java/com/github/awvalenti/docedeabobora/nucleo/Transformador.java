@@ -10,6 +10,7 @@ public class Transformador implements Runnable {
 		this.estoqueDestino = estoqueDestino;
 	}
 
+	@Override
 	public void run() {
 		if (estoqueOrigem.consumir()) estoqueDestino.produzir();
 	}
