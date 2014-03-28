@@ -2,6 +2,7 @@ package com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
@@ -14,6 +15,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 public class Raia extends JPanel {
@@ -28,13 +30,17 @@ public class Raia extends JPanel {
 
 		this.capacidade = capacidade;
 
-		criarLabelAlemDaCapacidade();
-		criarPainelProdutos(caminhoImagemNoClasspath, larguraImagem, alturaImagem);
-
-		add(new JLabel(titulo), BorderLayout.WEST);
-		add(painelProdutos, BorderLayout.CENTER);
+		adicionarLabelTitulo(titulo, larguraImagem, alturaImagem);
+		adicionarPainelProdutos(caminhoImagemNoClasspath, larguraImagem, alturaImagem);
 
 		setQuantidadeProdutos(0);
+	}
+
+	private void adicionarLabelTitulo(String titulo, int larguraImagem, int alturaImagem) {
+		JLabel labelTitulo = new JLabel(titulo);
+		labelTitulo.setPreferredSize(new Dimension(larguraImagem, alturaImagem));
+		labelTitulo.setHorizontalAlignment(SwingConstants.RIGHT);
+		add(labelTitulo, BorderLayout.WEST);
 	}
 
 	public void setQuantidadeProdutos(int quantidadeProdutos) {
@@ -51,13 +57,7 @@ public class Raia extends JPanel {
 		labelAlemDaCapacidade.setEnabled(quantidadeProdutos > capacidade);
 	}
 
-	private void criarLabelAlemDaCapacidade() {
-		labelAlemDaCapacidade = new JLabel("...");
-		labelAlemDaCapacidade.setFont(new Font(Font.SERIF, Font.BOLD, 50));
-		labelAlemDaCapacidade.setForeground(Color.RED);
-	}
-
-	private void criarPainelProdutos(String caminhoImagemNoClasspath, int larguraImagem, int alturaImagem) {
+	private void adicionarPainelProdutos(String caminhoImagemNoClasspath, int larguraImagem, int alturaImagem) {
 		painelProdutos = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		painelProdutos.setBorder(BorderFactory.createCompoundBorder(new EmptyBorder(10, 10, 10, 10), BorderFactory.createLineBorder(Color.GRAY)));
 
@@ -70,7 +70,15 @@ public class Raia extends JPanel {
 			painelProdutos.add(labelImagem);
 		}
 
+		criarLabelAlemDaCapacidade();
 		painelProdutos.add(labelAlemDaCapacidade);
+		add(painelProdutos, BorderLayout.CENTER);
+	}
+
+	private void criarLabelAlemDaCapacidade() {
+		labelAlemDaCapacidade = new JLabel("...");
+		labelAlemDaCapacidade.setFont(new Font(Font.SERIF, Font.BOLD, 50));
+		labelAlemDaCapacidade.setForeground(Color.RED);
 	}
 
 	private static BufferedImage lerImagem(String caminhoImagemNoClasspath) {

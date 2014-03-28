@@ -7,7 +7,7 @@ import com.github.awvalenti.docedeabobora.interfaceusuario.swing.fabrica.Fabrica
 public class MainCaixaAreiaSwing {
 
 	public static void main(String[] args) {
-		JFrame frame = new JFrame("Doce de abobora");
+		JFrame frame = new JFrame("Doce de ab\u00f3bora");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		frame.add(FabricaInterfaceGrafica.fabricarPainelRaias());
