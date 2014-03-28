@@ -20,7 +20,7 @@ public class PainelRaias extends JPanel {
 			JPanel painel = new JPanel(new BorderLayout());
 			painel.add(new JLabel(nomeRaia), BorderLayout.WEST);
 			Raia raia = new Raia(3, "/img/abobora.jpg", 100, 100);
-			raia.setQuantidadeItens(new Random().nextInt(5));
+			raia.setQuantidadeItens(i++);
 			painel.add(raia, BorderLayout.CENTER);
 			add(painel);
 		}

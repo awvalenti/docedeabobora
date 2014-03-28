@@ -1,12 +1,15 @@
 package com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -24,10 +27,13 @@ public class Raia extends JPanel {
 
 	public Raia(int capacidade, InputStream inputStreamImagem, int larguraImagem, int alturaImagem) {
 		super(new FlowLayout(FlowLayout.LEFT));
-		setBorder(new EmptyBorder(10, 10, 10, 10));
+		setBorder(BorderFactory.createCompoundBorder(new EmptyBorder(10, 10, 10, 10), BorderFactory.createLineBorder(Color.GRAY)));
+
 
 		this.capacidade = capacidade;
-		this.labelAlemDaCapacidade = new JLabel(". . .");
+		this.labelAlemDaCapacidade = new JLabel("...");
+		labelAlemDaCapacidade.setFont(new Font(Font.SERIF, Font.BOLD, 50));
+		labelAlemDaCapacidade.setForeground(Color.RED);
 
 		final Image imagem = lerImagem(inputStreamImagem).getScaledInstance(larguraImagem, alturaImagem, Image.SCALE_SMOOTH);
 
@@ -43,14 +49,14 @@ public class Raia extends JPanel {
 		final int quantidadeImagensAExibir = Math.min(quantidadeItens, capacidade);
 
 		for (int i = 0; i < quantidadeImagensAExibir; ++i) {
-			getComponent(i).setVisible(true);
+			getComponent(i).setEnabled(true);
 		}
 
 		for (int i = quantidadeItens; i < capacidade; ++i) {
-			getComponent(i).setVisible(false);
+			getComponent(i).setEnabled(false);
 		}
 
-		labelAlemDaCapacidade.setVisible(quantidadeItens > capacidade);
+		labelAlemDaCapacidade.setEnabled(quantidadeItens > capacidade);
 	}
 
 	private static BufferedImage lerImagem(InputStream inputStream) {
