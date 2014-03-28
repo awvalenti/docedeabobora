@@ -1,7 +1,5 @@
 package com.github.awvalenti.docedeabobora.nucleo.fabrica;
 
-import java.util.concurrent.Callable;
-
 import com.github.awvalenti.docedeabobora.nucleo.Consumidor;
 import com.github.awvalenti.docedeabobora.nucleo.Estoque;
 import com.github.awvalenti.docedeabobora.nucleo.EventoEstoque;
@@ -20,26 +18,19 @@ public class FabricaObjetosNucleo {
 	}
 
 	public static TrabalhadorPeriodico fabricarAgricultor(Estoque estoqueAboboras) {
-		return new TrabalhadorPeriodico(new Produtor(estoqueAboboras), INTERVALO_PADRAO);
+		return new TrabalhadorPeriodico(new Produtor(estoqueAboboras));
 	}
 
 	public static TrabalhadorPeriodico fabricarDoceiro(Estoque estoqueAboboras, Estoque estoqueDoces) {
-		return new TrabalhadorPeriodico(new Transformador(estoqueAboboras, estoqueDoces), INTERVALO_PADRAO);
+		return new TrabalhadorPeriodico(new Transformador(estoqueAboboras, estoqueDoces));
 	}
 
 	public static TrabalhadorPeriodico fabricarClientela(Estoque estoqueDoces) {
-		return new TrabalhadorPeriodico(new Consumidor(estoqueDoces), INTERVALO_PADRAO);
+		return new TrabalhadorPeriodico(new Consumidor(estoqueDoces));
 	}
 
 	private static Estoque fabricarEstoqueGenerico(EventoEstoque eventoEstoque) {
-		return new Estoque(0, 10, eventoEstoque);
+		return new Estoque(0, 12, eventoEstoque);
 	}
-
-	private static final Callable<Long> INTERVALO_PADRAO = new Callable<Long>() {
-		@Override
-		public Long call() {
-			return Long.valueOf(1000 + (long) (Math.random() * 1000));
-		}
-	};
 
 }

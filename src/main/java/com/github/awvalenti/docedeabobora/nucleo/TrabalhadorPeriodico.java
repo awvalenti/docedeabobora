@@ -1,34 +1,37 @@
 package com.github.awvalenti.docedeabobora.nucleo;
 
-import java.util.concurrent.Callable;
-
 public class TrabalhadorPeriodico {
 
 	private final Runnable tarefa;
-	private final Callable<Long> formulaIntervalo;
+	private final Thread thread;
+	private long periodo;
 
-	public TrabalhadorPeriodico(Runnable tarefa, Callable<Long> formulaIntervalo) {
+	public TrabalhadorPeriodico(Runnable tarefa) {
 		this.tarefa = tarefa;
-		this.formulaIntervalo = formulaIntervalo;
+		this.thread = new ThreadTrabalhadorPeriodico();
+		setPeriodo(1000);
 	}
 
 	public void iniciar() {
-		new ThreadTrabalhadorPeriodico().start();
+		thread.start();
 	}
 
 	private class ThreadTrabalhadorPeriodico extends Thread {
 		@Override
 		public void run() {
-			try {
-				for (;;) {
-					Thread.sleep(formulaIntervalo.call());
+			for (;;) {
+				try {
+					Thread.sleep(periodo);
 					tarefa.run();
+				} catch (InterruptedException e) {
 				}
-			} catch (Exception e) {
-				throw new RuntimeException(e);
 			}
-
 		}
+	}
+
+	public void setPeriodo(long periodo) {
+		this.periodo = periodo;
+		thread.interrupt();
 	}
 
 }

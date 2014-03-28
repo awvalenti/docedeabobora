@@ -10,14 +10,19 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import com.github.awvalenti.docedeabobora.interfaceusuario.swing.controlador.EventoControleVelocidade;
+
 public class ControleUmaVelocidade extends JPanel implements ChangeListener {
 	private static final long serialVersionUID = 1L;
 
 	private final JSlider slider;
 	private final JLabel labelValor;
 
-	public ControleUmaVelocidade(String nome) {
+	private final EventoControleVelocidade eventoControleVelocidade;
+
+	public ControleUmaVelocidade(String nome, EventoControleVelocidade eventoControleVelocidade) {
 		super(new BorderLayout());
+		this.eventoControleVelocidade = eventoControleVelocidade;
 		setBorder(new EmptyBorder(10, 10, 10, 10));
 
 		slider = new JSlider(SwingConstants.VERTICAL, 0, 100, 50);
@@ -34,7 +39,9 @@ public class ControleUmaVelocidade extends JPanel implements ChangeListener {
 
 	@Override
 	public void stateChanged(ChangeEvent e) {
-		labelValor.setText(String.valueOf(slider.getValue()) + "%");
+		int porcentagem = slider.getValue();
+		labelValor.setText(String.valueOf(porcentagem) + "%");
+		eventoControleVelocidade.aoAlterarVelocidade(porcentagem);
 	}
 
 }

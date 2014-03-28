@@ -7,6 +7,7 @@ import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.Cont
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.PainelControle;
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.PainelRaias;
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.Raia;
+import com.github.awvalenti.docedeabobora.interfaceusuario.swing.controlador.EventoControleVelocidade;
 
 public class FabricaObjetosSwing {
 
@@ -30,16 +31,16 @@ public class FabricaObjetosSwing {
 		return new Raia(titulo, 10, caminhoImagemNoClasspath, 100, 100);
 	}
 
-	public static ControleUmaVelocidade criarControleVelocidadeAgricultor() {
-		return new ControleUmaVelocidade("Agricultor");
+	public static ControleUmaVelocidade criarControleVelocidadeAgricultor(EventoControleVelocidade eventoControleVelocidade) {
+		return new ControleUmaVelocidade("Agricultor", eventoControleVelocidade);
 	}
 
-	public static ControleUmaVelocidade criarControleVelocidadeDoceiro() {
-		return new ControleUmaVelocidade("Doceiro");
+	public static ControleUmaVelocidade criarControleVelocidadeDoceiro(EventoControleVelocidade eventoControleVelocidade) {
+		return new ControleUmaVelocidade("Doceiro", eventoControleVelocidade);
 	}
 
-	public static ControleUmaVelocidade criarControleVelocidadeClientela() {
-		return new ControleUmaVelocidade("Clientela");
+	public static ControleUmaVelocidade criarControleVelocidadeClientela(EventoControleVelocidade eventoControleVelocidade) {
+		return new ControleUmaVelocidade("Clientela", eventoControleVelocidade);
 	}
 
 }

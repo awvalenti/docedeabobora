@@ -6,6 +6,7 @@ import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.Cont
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.PainelControle;
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.PainelRaias;
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.Raia;
+import com.github.awvalenti.docedeabobora.interfaceusuario.swing.controlador.AdaptadorPorcentagemTempo;
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.controlador.AtualizadorDeRaia;
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.fabrica.FabricaObjetosSwing;
 import com.github.awvalenti.docedeabobora.nucleo.Estoque;
@@ -28,9 +29,9 @@ public class MainAplicativoSwing {
 		JFrame frame = new JFrame("Doce de ab\u00f3bora");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		ControleUmaVelocidade controleVelocidadeAgricultor = FabricaObjetosSwing.criarControleVelocidadeAgricultor();
-		ControleUmaVelocidade controleVelocidadeDoceiro = FabricaObjetosSwing.criarControleVelocidadeDoceiro();
-		ControleUmaVelocidade controleVelocidadeClientela = FabricaObjetosSwing.criarControleVelocidadeClientela();
+		ControleUmaVelocidade controleVelocidadeAgricultor = FabricaObjetosSwing.criarControleVelocidadeAgricultor(new AdaptadorPorcentagemTempo(agricultor));
+		ControleUmaVelocidade controleVelocidadeDoceiro = FabricaObjetosSwing.criarControleVelocidadeDoceiro(new AdaptadorPorcentagemTempo(doceiro));
+		ControleUmaVelocidade controleVelocidadeClientela = FabricaObjetosSwing.criarControleVelocidadeClientela(new AdaptadorPorcentagemTempo(clientela));
 
 		frame.add(FabricaObjetosSwing.fabricarPainelGeral(
 			new PainelRaias(raiaAboboras, raiaDoces),
