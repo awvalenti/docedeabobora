@@ -3,7 +3,7 @@ package com.github.awvalenti.docedeabobora.main;
 import javax.swing.JFrame;
 
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.PainelRaias;
-import com.github.awvalenti.docedeabobora.interfaceusuario.swing.fabrica.FabricaInterfaceGrafica;
+import com.github.awvalenti.docedeabobora.interfaceusuario.swing.fabrica.FabricaObjetosSwing;
 
 public class MainCaixaAreiaSwing {
 
@@ -11,7 +11,7 @@ public class MainCaixaAreiaSwing {
 		JFrame frame = new JFrame("Doce de ab\u00f3bora");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		frame.add(new PainelRaias(FabricaInterfaceGrafica.fabricarRaiaAboboras(), FabricaInterfaceGrafica.fabricarRaiaDoces()));
+		frame.add(new PainelRaias(FabricaObjetosSwing.fabricarRaiaAboboras(), FabricaObjetosSwing.fabricarRaiaDoces()));
 
 		frame.pack();
 		frame.setVisible(true);

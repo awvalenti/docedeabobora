@@ -2,7 +2,7 @@ package com.github.awvalenti.docedeabobora.interfaceusuario.swing.fabrica;
 
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.Raia;
 
-public class FabricaInterfaceGrafica {
+public class FabricaObjetosSwing {
 
 	public static Raia fabricarRaiaAboboras() {
 		return fabricarRaiaGenerica("Ab\u00f3boras", "/img/abobora.jpg");
