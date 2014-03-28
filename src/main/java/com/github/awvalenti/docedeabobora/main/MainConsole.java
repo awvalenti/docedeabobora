@@ -1,5 +1,6 @@
-package com.github.awvalenti.docedeabobora.main.console;
+package com.github.awvalenti.docedeabobora.main;
 
+import com.github.awvalenti.docedeabobora.interfaceusuario.console.SaidaNoConsole;
 import com.github.awvalenti.docedeabobora.nucleo.Estoque;
 import com.github.awvalenti.docedeabobora.nucleo.TrabalhadorPeriodico;
 import com.github.awvalenti.docedeabobora.nucleo.fabrica.FabricaObjetos;
