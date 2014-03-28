@@ -1,20 +1,19 @@
 package com.github.awvalenti.docedeabobora.interfaceusuario.swing.fabrica;
 
-import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.PainelRaias;
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.Raia;
 
 public class FabricaInterfaceGrafica {
 
-	public static PainelRaias fabricarPainelRaias() {
-		final int capacidade = 10;
+	public static Raia fabricarRaiaAboboras() {
+		return fabricarRaiaGenerica("Ab\u00f3boras", "/img/abobora.jpg");
+	}
 
-		Raia raiaAboboras = new Raia("Ab\u00f3boras", capacidade, "/img/abobora.jpg", 100, 100);
-		Raia raiaDoces = new Raia("Doces", capacidade, "/img/doce-de-abobora.jpg", 100, 100);
+	public static Raia fabricarRaiaDoces() {
+		return fabricarRaiaGenerica("Doces", "/img/doce-de-abobora.jpg");
+	}
 
-		raiaAboboras.setQuantidadeProdutos(capacidade / 2);
-		raiaDoces.setQuantidadeProdutos(capacidade / 2);
-
-		return new PainelRaias(raiaAboboras, raiaDoces);
+	private static Raia fabricarRaiaGenerica(String titulo, String caminhoImagemNoClasspath) {
+		return new Raia(titulo, 10, caminhoImagemNoClasspath, 100, 100);
 	}
 
 }

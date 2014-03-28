@@ -9,7 +9,7 @@ import com.github.awvalenti.docedeabobora.nucleo.Produtor;
 import com.github.awvalenti.docedeabobora.nucleo.TrabalhadorPeriodico;
 import com.github.awvalenti.docedeabobora.nucleo.Transformador;
 
-public class FabricaObjetos {
+public class FabricaNucleo {
 
 	public static Estoque fabricarEstoqueAboboras(EventoEstoque eventoEstoque) {
 		return fabricarEstoqueGenerico(eventoEstoque);
