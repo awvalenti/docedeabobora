@@ -14,6 +14,7 @@ public class ControleUmaVelocidade extends JPanel implements ChangeListener {
 	private static final long serialVersionUID = 1L;
 
 	private final JSlider slider;
+	private final JLabel labelValor;
 
 	public ControleUmaVelocidade(String nome) {
 		super(new BorderLayout());
@@ -22,13 +23,18 @@ public class ControleUmaVelocidade extends JPanel implements ChangeListener {
 		slider = new JSlider(SwingConstants.VERTICAL, 0, 100, 50);
 		slider.addChangeListener(this);
 
+		labelValor = new JLabel();
+		labelValor.setHorizontalAlignment(SwingConstants.CENTER);
+		stateChanged(null);
+
 		add(new JLabel(nome, SwingConstants.CENTER), BorderLayout.NORTH);
-		add(slider, BorderLayout.SOUTH);
+		add(slider, BorderLayout.CENTER);
+		add(labelValor, BorderLayout.SOUTH);
 	}
 
 	@Override
 	public void stateChanged(ChangeEvent e) {
-		slider.getValue();
+		labelValor.setText(String.valueOf(slider.getValue()) + "%");
 	}
 
 }
