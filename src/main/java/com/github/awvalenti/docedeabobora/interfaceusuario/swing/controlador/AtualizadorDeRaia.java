@@ -12,12 +12,12 @@ public class AtualizadorDeRaia implements EventoEstoque {
 
 	@Override
 	public void aoProduzir(int novaQuantidade) {
-		raia.setQuantidadeProdutos(novaQuantidade);
+		raia.setQuantidade(novaQuantidade);
 	}
 
 	@Override
 	public void aoConsumir(int novaQuantidade) {
-		raia.setQuantidadeProdutos(novaQuantidade);
+		raia.setQuantidade(novaQuantidade);
 	}
 
 }

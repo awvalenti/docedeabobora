@@ -7,6 +7,8 @@ import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.Cont
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.PainelControle;
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.PainelRaias;
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.Raia;
+import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.RaiaComImagens;
+import com.github.awvalenti.docedeabobora.interfaceusuario.swing.componente.RaiaNumerica;
 import com.github.awvalenti.docedeabobora.interfaceusuario.swing.controlador.EventoControleVelocidade;
 
 public class FabricaObjetosSwing {
@@ -20,15 +22,19 @@ public class FabricaObjetosSwing {
 	}
 
 	public static Raia fabricarRaiaAboboras() {
-		return fabricarRaiaGenerica("Ab\u00f3boras", "/img/abobora.jpg");
+		return fabricarRaiaComImagens("Ab\u00f3boras", "/img/abobora.jpg");
 	}
 
 	public static Raia fabricarRaiaDoces() {
-		return fabricarRaiaGenerica("Doces", "/img/doce-de-abobora.jpg");
+		return fabricarRaiaComImagens("Doces", "/img/doce-de-abobora.jpg");
 	}
 
-	private static Raia fabricarRaiaGenerica(String titulo, String caminhoImagemNoClasspath) {
-		return new Raia(titulo, 10, caminhoImagemNoClasspath, 100, 100);
+	public static Raia fabricarRaiaClientela() {
+		return new RaiaNumerica("Resultado", 100, 100, "cliente(s) satisfeito(s)");
+	}
+
+	private static Raia fabricarRaiaComImagens(String titulo, String caminhoImagemNoClasspath) {
+		return new RaiaComImagens(titulo, 10, caminhoImagemNoClasspath, 100, 100);
 	}
 
 	public static ControleUmaVelocidade criarControleVelocidadeAgricultor(EventoControleVelocidade eventoControleVelocidade) {

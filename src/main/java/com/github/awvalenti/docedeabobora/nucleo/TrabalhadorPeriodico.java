@@ -1,15 +1,17 @@
 package com.github.awvalenti.docedeabobora.nucleo;
 
+import java.lang.Thread.State;
+
 public class TrabalhadorPeriodico {
 
 	private final Runnable tarefa;
 	private final Thread thread;
 	private long periodo;
 
-	public TrabalhadorPeriodico(Runnable tarefa) {
+	public TrabalhadorPeriodico(Runnable tarefa, int periodo) {
 		this.tarefa = tarefa;
 		this.thread = new ThreadTrabalhadorPeriodico();
-		setPeriodo(1000);
+		setPeriodo(periodo);
 	}
 
 	public void iniciar() {
@@ -31,7 +33,7 @@ public class TrabalhadorPeriodico {
 
 	public void setPeriodo(long periodo) {
 		this.periodo = periodo;
-		thread.interrupt();
+		if (thread.getState() == State.TIMED_WAITING) thread.interrupt();
 	}
 
 }

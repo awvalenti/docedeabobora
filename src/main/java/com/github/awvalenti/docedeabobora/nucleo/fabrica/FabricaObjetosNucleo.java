@@ -18,19 +18,23 @@ public class FabricaObjetosNucleo {
 	}
 
 	public static TrabalhadorPeriodico fabricarAgricultor(Estoque estoqueAboboras) {
-		return new TrabalhadorPeriodico(new Produtor(estoqueAboboras));
+		return criarTrabalhadorPeriodico(new Produtor(estoqueAboboras));
 	}
 
 	public static TrabalhadorPeriodico fabricarDoceiro(Estoque estoqueAboboras, Estoque estoqueDoces) {
-		return new TrabalhadorPeriodico(new Transformador(estoqueAboboras, estoqueDoces));
+		return criarTrabalhadorPeriodico(new Transformador(estoqueAboboras, estoqueDoces));
 	}
 
 	public static TrabalhadorPeriodico fabricarClientela(Estoque estoqueDoces) {
-		return new TrabalhadorPeriodico(new Consumidor(estoqueDoces));
+		return criarTrabalhadorPeriodico(new Consumidor(estoqueDoces));
 	}
 
 	private static Estoque fabricarEstoqueGenerico(EventoEstoque eventoEstoque) {
 		return new Estoque(0, 12, eventoEstoque);
+	}
+
+	private static TrabalhadorPeriodico criarTrabalhadorPeriodico(Runnable runnable) {
+		return new TrabalhadorPeriodico(runnable, 1000);
 	}
 
 }
