@@ -13,6 +13,8 @@ import com.github.awvalenti.docedeabobora.interfaceusuario.swing.controlador.Eve
 
 public class FabricaObjetosSwing {
 
+	private static final int TAMANHO_IMAGEM = 100;
+
 	public static JPanel fabricarPainelGeral(PainelRaias painelRaias, PainelControle painelControle) {
 		JPanel painelGeral = new JPanel();
 		painelGeral.setLayout(new BoxLayout(painelGeral, BoxLayout.Y_AXIS));
@@ -30,11 +32,11 @@ public class FabricaObjetosSwing {
 	}
 
 	public static Raia fabricarRaiaClientela() {
-		return new RaiaNumerica("Resultado", 100, 100, "cliente(s) satisfeito(s)");
+		return new RaiaNumerica("Resultado", TAMANHO_IMAGEM, TAMANHO_IMAGEM, "cliente(s) satisfeito(s)");
 	}
 
 	private static Raia fabricarRaiaComImagens(String titulo, String caminhoImagemNoClasspath) {
-		return new RaiaComImagens(titulo, 10, caminhoImagemNoClasspath, 100, 100);
+		return new RaiaComImagens(titulo, 10, caminhoImagemNoClasspath, TAMANHO_IMAGEM, TAMANHO_IMAGEM);
 	}
 
 	public static ControleUmaVelocidade criarControleVelocidadeAgricultor(EventoControleVelocidade eventoControleVelocidade) {
