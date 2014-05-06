@@ -12,14 +12,14 @@ public class Estoque {
 		this.eventoEstoque = eventoEstoque;
 	}
 
-	public boolean consumir() {
+	public synchronized boolean consumir() {
 		if (tamanho <= 0) return false;
 
 		eventoEstoque.aoConsumir(--tamanho);
 		return true;
 	}
 
-	public void produzir() {
+	public synchronized void produzir() {
 		if (tamanho < limite) {
 			eventoEstoque.aoProduzir(++tamanho);
 		}
