@@ -1,5 +1,5 @@
-doce-de-abobora
-===============
+docedeabobora
+=============
 
 Problema do produtor-consumidor usando abóboras e doces de abóbora.
 
